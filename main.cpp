@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdio>
+#include <string>
+#include <sstream>
 using namespace std;
 
 namespace LIST
@@ -187,39 +189,56 @@ void Clear()
 
 }
 
-int n;
 int main()
 {
+    int n;
     cin >> n;
-    int op, x, p, ans;
+    
     LIST::Pre();
-    for (int _ = 0; _ < n; ++_)
+    
+    for (int i = 0; i < n; ++i)
     {
+        int op;
         cin >> op;
+        
         switch(op)
         {
             case 0:
-                ans = LIST::Get_length();
+            {
+                int ans = LIST::Get_length();
                 cout << ans << endl;
                 break;
+            }
             case 1:
+            {
+                int p, x;
                 cin >> p >> x;
                 LIST::insert(p, x);
                 break;
+            }
             case 2:
+            {
+                int p;
                 cin >> p;
-                ans = LIST::Query(p);
+                int ans = LIST::Query(p);
                 cout << ans << endl;
                 break;
+            }
             case 3:
+            {
+                int p;
                 cin >> p;
                 LIST::remove(p);
                 break;
+            }
             case 4:
+            {
                 LIST::Print();
                 break;
+            }
         }
     }
+    
     LIST::Clear();
     return 0;
 }
